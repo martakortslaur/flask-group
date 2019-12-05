@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Welcome to Estonian country page</h1>
+    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Deserunt maiores officia eum dolor id nulla, minus, pariatur, laborum perspiciatis error ea fugit voluptate voluptas aliquid vitae? Temporibus iure est dolore a qui quod laudantium recusandae eos molestiae? Optio repudiandae, tenetur molestias quasi sapiente aperiam nisi. Distinctio, totam animi dolorum quia, repellat eligendi dolorem placeat tenetur quae sequi, nulla voluptas quasi! Voluptates assumenda quas aperiam, autem facere nemo unde vel, eveniet ratione, consectetur reprehenderit mollitia ex eaque atque voluptatum alias libero commodi? Assumenda, ipsa, rem cumque aliquam nihil qui rerum hic natus laboriosam ducimus repudiandae autem, provident molestiae ratione laborum suscipit!</p>
+    
+    {% for city in cities %}
+    <div class="card" style="width:400px">
+  <img class="card-img-top" src="img_avatar1.png" alt="Card image">
+  <div class="card-body">
+    <h4 class="card-title">{{ city["name"] }}</h4>
+    <p class="card-text">{{ city["descr"]}}</p>
+    <a href="#" class="btn btn-primary">See Profile</a>
+  </div>
+</div>
+</div>
+{% endfor %}
+  
+</body>
+</html>
