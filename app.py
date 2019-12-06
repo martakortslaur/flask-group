@@ -1,11 +1,27 @@
 import os
 from flask import Flask, request, render_template
+from pymongo import MongoClient
 
 app = Flask(__name__)
+
+#Settings
+MONGO_URI = "mongodb+srv://<username>:<h2rtmanng9sse>@cluster0-utrzr.mongodb.net/test?retryWrites=true&w=majority"
+client = MongoClient(MONGO_URI)
+db = client.first_database
+collection = db.movies
 
 @app.route("/")
 def home():
     return "<h1>This is the home page</h1><br><p>Bonjour!</p>"
+
+@app.route('playing_around_with_databases')
+def playing_around_with_databases():
+    return "This is where we will be playing around with databases"
+
+
+
+
+
 
 @app.route("/europe")
 def europe():
@@ -19,7 +35,7 @@ def estonia():
     }
     city_02 = {
         "name" : "Tartu",
-        "descr" : "University"
+        "descr" : "University city"
     }
     cities = [city_01, city_02]
     return render_template("country.html", cities=cities)
