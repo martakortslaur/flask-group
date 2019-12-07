@@ -1,14 +1,14 @@
 import os
 from flask import Flask, request, render_template
-from pymongo import MongoClient
+from flask_pymongo import PyMongo
 
 app = Flask(__name__)
 
-#Settings
-MONGO_URI = "mongodb+srv://<username>:<h2rtmanng9sse>@cluster0-utrzr.mongodb.net/test?retryWrites=true&w=majority"
-client = MongoClient(MONGO_URI)
-db = client.first_database
-collection = db.movies
+app.config['MONGO_DBNAME'] = 'first_databse'    # name of your database
+app.config['MONGO_URI'] = os.getenv('MONGO_URI', 'mongodb+srv://martakortslaur@gmail.com:h2rtmanng9sse@cluster0-utrzr.mongodb.net/test?retryWrites=true&w=majority')   # URI (see above)
+mongo = PyMongo(app)
+
+
 
 @app.route("/")
 def home():
