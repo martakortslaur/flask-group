@@ -13,16 +13,23 @@ mongo = PyMongo(app)
 
 @app.route("/")
 def home():
-    return "<h1>This is the home page</h1><br><p>Bonjour!</p>"
+    city_01 = {
+        "name" : "Tallinn",
+        "descr" : "Capital",
+        "bio" : "Tallinn is a great city!"
+    }
+    city_02 = {
+        "name" : "Tartu",
+        "descr" : "University city",
+        "bio" : "Tartu is a small city."
+    }
+    cities = [city_01, city_02]
+    return render_template('index.html', cities=cities)
 
 @app.route('/playing_around_with_databases')
 def playing_around_with_databases():
     movies = mongo.db.movies.find()
     return "This is where we will be playing around with databases"
-
-
-
-
 
 
 @app.route("/europe")
